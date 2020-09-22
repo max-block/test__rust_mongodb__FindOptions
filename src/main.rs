@@ -13,9 +13,6 @@ fn main() -> Result<(), Error> {
         .sort(doc! { "name": -1})
         .limit(10)
         .build();
-
-    
-
     let res: Vec<_> = col.find(doc! {}, find_options).unwrap().collect();
 
     println!("{:#?}", res);
