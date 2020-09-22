@@ -9,7 +9,13 @@ fn main() -> Result<(), Error> {
 
     // FindOptions::builder <-- intellij-rust and vscode can't autocomplete it
 
-    let find_options = FindOptions::builder().sort(doc! { "name": -1}).build();
+    let find_options = FindOptions::builder()
+        .sort(doc! { "name": -1})
+        .limit(10)
+        .build();
+
+    
+
     let res: Vec<_> = col.find(doc! {}, find_options).unwrap().collect();
 
     println!("{:#?}", res);
